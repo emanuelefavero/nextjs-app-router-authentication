@@ -2,6 +2,7 @@ import { redirect } from 'next/navigation'
 import { getSession, login, logout } from '@/lib'
 
 export default async function Home() {
+  // Get the session with the user credentials
   const session = await getSession()
 
   return (
@@ -15,10 +16,22 @@ export default async function Home() {
           await login(formData)
           redirect('/')
         }}
-        className='mb-2 border border-gray-500 border-opacity-50 p-2 rounded-md w-fit'
+        className='mb-2 flex flex-col border border-gray-500 border-opacity-50 p-2 rounded-md w-fit'
       >
-        <input type='email' placeholder='Email' className='mb-2' />
-        <br />
+        <input
+          type='email'
+          placeholder='Email'
+          name='email'
+          className='mb-2'
+          required
+        />
+        <input
+          type='text'
+          placeholder='Name'
+          name='name'
+          className='mb-2'
+          required
+        />
         <button type='submit'>Login</button>
       </form>
 
@@ -33,7 +46,7 @@ export default async function Home() {
         <button type='submit'>Logout</button>
       </form>
 
-      <h2 className='text-xl mt-4'>Session</h2>
+      <h2 className='text-xl mt-4'>Session - user credentials</h2>
       <pre>{JSON.stringify(session, null, 2)}</pre>
     </section>
   )
