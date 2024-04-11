@@ -27,8 +27,6 @@ export async function login(formData: FormData) {
 
   const user = { email: email.trim(), name: name.trim() }
 
-  console.log(user)
-
   // Create the session
   // TIP: In a real application the session should expire in a longer time (e.g. 1 day, 1 week, etc.)
   const expires = new Date(Date.now() + 10 * 1000)

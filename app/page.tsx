@@ -5,35 +5,20 @@ export default async function Home() {
   // Get the session with the user credentials
   const session = await getSession()
 
+  if (!session) redirect('/login') // Redirect to login if no session
+
   return (
     <section>
       <h1 className='text-2xl'>Next.js App Router Auth</h1>
 
-      <h2 className='text-xl mt-4'>Login</h2>
-      <form
-        action={async (formData) => {
-          'use server'
-          await login(formData)
-          redirect('/')
-        }}
-        className='mb-2 flex flex-col border border-gray-500 border-opacity-50 p-2 rounded-md w-fit'
-      >
-        <input
-          type='email'
-          placeholder='Email'
-          name='email'
-          className='mb-2'
-          required
-        />
-        <input
-          type='text'
-          placeholder='Name'
-          name='name'
-          className='mb-2'
-          required
-        />
-        <button type='submit'>Login</button>
-      </form>
+      <h2 className='text-xl mt-4'>Session Data</h2>
+      <pre>{JSON.stringify(session, null, 2)}</pre>
+
+      <h2 className='text-xl mt-4'>Output</h2>
+      <p>
+        Welcome, {session.user.name}! You are logged in with email:{' '}
+        {session.user.email}
+      </p>
 
       <h2 className='text-xl mt-4'>Logout</h2>
       <form
@@ -45,9 +30,6 @@ export default async function Home() {
       >
         <button type='submit'>Logout</button>
       </form>
-
-      <h2 className='text-xl mt-4'>Session - user credentials</h2>
-      <pre>{JSON.stringify(session, null, 2)}</pre>
     </section>
   )
 }
