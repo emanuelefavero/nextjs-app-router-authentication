@@ -4,6 +4,10 @@ This is a simple example of how to implement a simple authentication with no lib
 
 > Note: This example does not use a database to store user credentials, in a real application you should use a database and modify the expiration time in `lib.ts` (see comment)
 
+#### Screenshot
+
+<img src="screenshot.png" alt="screenshot" width="300">
+
 ## Getting Started
 
 Clone the repository, then:
