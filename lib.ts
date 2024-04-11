@@ -40,7 +40,12 @@ export async function logout() {
 }
 
 // * Get Session
-export async function getSession() {}
+export async function getSession() {
+  const session = cookies().get('session')?.value
+  if (!session) return null
+
+  return await decrypt(session)
+}
 
 // * Update Session
 export async function updateSession(request: NextRequest) {}
