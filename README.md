@@ -3,6 +3,8 @@
 This is a simple example of how to implement a simple authentication with no libraries in Next.js App Router
 
 > Note: This example does not use a database to store user credentials, in a real application you should use a database and modify the expiration time in `lib.ts` (see comment)
+>
+> Note: This project is inspired by Lee Robinson repo: [https://github.com/balazsorban44/auth-poc-next](https://github.com/balazsorban44/auth-poc-next)
 
 #### Screenshot
 
