@@ -3,31 +3,112 @@
 @tailwind utilities;
 
 :root {
-  --foreground-rgb: 0, 0, 0;
-  --background-start-rgb: 214, 219, 220;
-  --background-end-rgb: 255, 255, 255;
+  --background: #fff;
+  --foreground: #000;
+  --primary: #d946ef;
+  --primary-hover: #c026d3;
+  --selection: rgba(216, 70, 239, 0.3);
 }
 
 @media (prefers-color-scheme: dark) {
   :root {
-    --foreground-rgb: 255, 255, 255;
-    --background-start-rgb: 0, 0, 0;
-    --background-end-rgb: 0, 0, 0;
+    --background: #000;
+    --foreground: #fff;
   }
+}
+
+* {
+  box-sizing: border-box;
+  padding: 0;
+  margin: 0;
 }
 
 body {
-  color: rgb(var(--foreground-rgb));
-  background: linear-gradient(
-      to bottom,
-      transparent,
-      rgb(var(--background-end-rgb))
-    )
-    rgb(var(--background-start-rgb));
+  background-color: var(--background);
+  color: var(--foreground);
+  padding: 1rem;
 }
 
-@layer utilities {
-  .text-balance {
-    text-wrap: balance;
-  }
+::selection {
+  background-color: var(--selection);
+}
+
+:focus-visible {
+  outline: 2px solid var(--primary);
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-weight: bold;
+}
+
+h1 {
+  font-size: 2.5rem;
+}
+
+h2 {
+  font-size: 1.75rem;
+}
+
+h3 {
+  font-size: 1.5rem;
+}
+
+h4 {
+  font-size: 1.25rem;
+}
+
+h5 {
+  font-size: 1rem;
+}
+
+h6 {
+  font-size: 0.875rem;
+}
+
+a {
+  color: var(--primary);
+}
+
+a:hover {
+  text-decoration: underline;
+}
+
+button,
+button[type='submit'],
+input[type='submit'] {
+  background-color: var(--primary);
+  color: #fff;
+  padding: 0.4rem 1.5rem;
+  border-radius: 0.5rem;
+  transition: transform 0.1s;
+}
+
+button:hover,
+button[type='submit']:hover,
+input[type='submit']:hover {
+  background-color: var(--primary-hover);
+}
+
+button:active,
+button[type='submit']:active,
+input[type='submit']:active {
+  transform: scale(0.95);
+}
+
+button[disabled] {
+  background-color: #ccc;
+  color: #000;
+}
+
+input,
+textarea {
+  color: #000;
+  border: 1px solid var(--foreground);
+  padding: 0.5rem;
+  border-radius: 0.5rem;
 }
