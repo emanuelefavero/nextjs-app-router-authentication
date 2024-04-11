@@ -34,7 +34,10 @@ export async function login(formData: FormData) {
 }
 
 // * Logout
-export async function logout() {}
+export async function logout() {
+  // Clear the session
+  cookies().set('session', '', { expires: new Date(0) }) // expires immediately
+}
 
 // * Get Session
 export async function getSession() {}
