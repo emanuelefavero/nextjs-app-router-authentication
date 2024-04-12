@@ -26,3 +26,7 @@ Open [http://localhost:3000](http://localhost:3000) with your browser to see the
 - [Next.js Authentication](https://nextjs.org/docs/app/building-your-application/authentication)
 - [Lucia Auth](https://lucia-auth.com/)
 - [NextAuth](https://next-auth.js.org/)
+
+## License
+
+- [MIT](LICENSE.md)
